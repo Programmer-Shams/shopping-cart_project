@@ -21,6 +21,7 @@ const ProductBox = ({ FruitName, FruitPrice, fruitImg, id }: FruitProps) => {
   }
 
   const { increaseCartQuantity } = useShoppingCart();
+  
 
   return (
     <div className="bg-bg_color2 p-4 w-[250px] rounded-xl shadow-md hover:scale-[1.05] transition-transform duration-500">
