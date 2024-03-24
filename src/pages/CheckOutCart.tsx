@@ -50,28 +50,6 @@ const CheckOutCart = () => {
     return total + calculateDiscountedTotal(cartItem, offers); // Pass both item and offers
   }, 0);
 
-  // Function to handle checkout to stripe
-  const checkout = async () => {
-    await fetch("http://localhost:4000/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        items: cartItems,
-        total: discountedTotal,
-      }),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        if (response.url) {
-          window.location.assign(response.url); // Forwarding user to Stripe
-        }
-      });
-  };
-
   // Function to handle payment
   const handlePay = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
